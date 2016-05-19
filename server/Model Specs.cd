@@ -87,6 +87,33 @@ joinEvent()
 Input: (user_id, event_id)
 Output: err/null
 
+API:
+
+GET
+/api/v1/user/
+Body: Auth token
+--> Triggers getUser()
+
+POST
+/api/v1/user/
+Body: User Obj
+--> Triggers createUer()
+
+DELETE
+/api/v1/user/
+Body: Auth token
+--> Triggers deleteUser()
+
+POST
+/api/v1/user/sign-in
+Body: {username: str, password: str}
+--> Triggers checkAuth(), returns auth token
+
+POST
+/api/v1/user/:EventId=<event_id>
+Body: Auth token
+--> Triggers joinEvent()
+
 
 ****Events Message Board****
 
