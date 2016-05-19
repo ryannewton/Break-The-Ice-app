@@ -1,4 +1,6 @@
 angular.module('break') 
+
+
 .controller('landing', function($scope){
     $scope.title = "Break the ice";
     $scope.text = "landing controller for angular";
