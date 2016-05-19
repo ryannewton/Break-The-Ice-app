@@ -20,10 +20,6 @@ createEvent()
 Input: event obj (see db elements)
 Output: err/null
 
-getEvent()
-Input: eventID
-Output: Event obj
-
 deleteEvent()
 Input: eventID
 Output: err/null
@@ -33,8 +29,27 @@ Input: Event obj
 Output: err if ID does not match value in database; null on success
 
 getEvents()
-Input: Obj of filtering criteria (e.g. {location: 'Austin'})
+Input: Obj of filtering criteria (e.g. {location: 'Austin'}, {event_id: ID})
 Output: Array of all event objs meeting filter criteria
+
+APIs:
+
+GET
+/api/v1/events/
+--> Triggers getEvents(), returns all events
+
+GET
+/api/v1/events/:Id=<event_id>
+--> Triggers getEvents()
+
+POST
+/api/v1/events/
+Body: event Obj
+--> Triggers createEvent() if event ID does not exist, or editEvent if it does
+
+DELETE
+/api/v1/events/:Id=<event_id>
+--> Triggers deleteEvent()
 
 
 
