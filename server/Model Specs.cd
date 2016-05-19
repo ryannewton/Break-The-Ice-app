@@ -1,0 +1,80 @@
+Model Specs
+
+****Events****
+
+Database:
+ -event_name:     str
+ -location:       str
+ -start_time:     Date()
+ -end_time:       Date()
+ -pic_url:        str
+ -categories:     [strs]
+ -users_att:      [user_ids]
+ -owners:         [user_ids]
+ -creation_time:  Date()
+ -description:    str
+
+Methods:
+
+createEvent()
+Input: event obj (see db elements)
+Output: err/null
+
+getEvent()
+
+deleteEvent()
+
+editEvent()
+
+getEvents()
+
+getEventList()
+
+
+
+****Users****
+
+Database:
+ -email:    str
+ -password: str (plain text)
+ -first_name: str
+ -last_name:  str
+ -alias:      str
+ -hometown:   str
+ -interests:  [strs]
+ -pic_url:    str
+
+Methods:
+
+createUser()
+
+getUser()
+
+deleteUser()
+
+addUser()
+
+checkAuth()
+
+joinEvent()
+
+
+****Events Message Board****
+
+Database:
+ -event_id:   id
+ -messages: [
+ {user_id:  id,
+  msg:      str,
+  time:     Date
+ },...]
+
+Methods:
+
+getEventMsgs()
+
+addMsg()
+
+deleteMsg()
+
+editMsg()
