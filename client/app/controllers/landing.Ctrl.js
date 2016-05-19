@@ -41,7 +41,7 @@ angular.module('break')
     ];
 
     $scope.events.forEach(function(event){
-    	event.diff = moment(event.start_time).fromNow();
+    	event.timeFromNow = moment(event.start_time).fromNow();
     	event.startInHour = parseInt(moment(event.start_time).diff(Date.now(),'hours')); //usful for events starting soon
     	event.categories.forEach(function(category){
     		if ($scope.categories.indexOf(category)===-1){
@@ -49,9 +49,9 @@ angular.module('break')
     		}
     	});
     });
-    $scope.tempEvent = $scope.events.slice();
-    $scope.tempEvent = $scope.tempEvent.sort(function(a,b){
+    $scope.orderedEvents = $scope.events.slice();
+    $scope.orderedEvents = $scope.orderedEvents.sort(function(a,b){
     	return a.startInHour - b.startInHour
     })
-    $scope.featured = $scope.tempEvent.slice(0,3);
+    $scope.featured = $scope.orderedEvents.slice(0,3);
 })
