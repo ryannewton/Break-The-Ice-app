@@ -12,7 +12,7 @@
     <title>Shop Homepage - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="app/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/shop-homepage.css" rel="stylesheet">
@@ -114,7 +114,7 @@
                 <div class="row">
                     <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="event in events">
                         <div class="thumbnail">
-                            <img src="{{event.pic_url}}" alt="">
+                            <img src="{{event.img}}" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">{{event.user_att.length}} going</h4>
                                 <h4><a href="#">{{event.event_name}}</a>
@@ -123,10 +123,10 @@
                             </div>
                             <div class="ratings">
                                 <!-- maybe display the category here -->
-                                <p class="pull-right">{{event.categories}}</p>
+                                <p class="pull-right" ng-repeat="catergory in event.categories">{{catergory}}</p>
                                 <!-- here is the star rating. maybe display how many ppl are going -->
-                                <p ng-repeat="range(event.categories.lenght)">
-                                    <span class="glyphicon glyphicon-star"></span>
+                              <!--   <p ng-repeat="range(event.categories.lenght)"> -->
+                                    <span ng-repeat="i in event.users_att"class="glyphicon glyphicon-user"></span>
                                 </p>
                             </div>
                         </div>
@@ -165,14 +165,14 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="app/bower_components/jquery/dist/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="app/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- angular -->
     <script type="text/javascript" src="app/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
-    <script type="text/javascript" src="app/controllers/landing.js"></script>
+    <script type="text/javascript" src="app/controllers/landing.Ctrl.js"></script>
 
 </body>
 
