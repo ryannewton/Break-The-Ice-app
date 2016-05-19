@@ -31,16 +31,22 @@ db.once('open', function() {
       required: true,
     },
     users_att: {
-      type: Array,
+      type: [{
+        type: Schema.ObjectId,
+        ref: 'users'
+      }],
       required: true,
     },
     owners: {
-      type: Array,
+      type: type: [{
+        type: Schema.ObjectId,
+        ref: 'users'
+      }],
       required: true,
     },
     creation_time: {
       type: Date,
-      required: true,
+      default: Date.now,
     },
     description: {
       type: String,
@@ -50,5 +56,5 @@ db.once('open', function() {
 
 });
 
-var Events = mongoose.model('events', EventSchema);
+var Events = mongoose.model('Events', EventSchema);
 module.exports Events;

@@ -27,8 +27,14 @@ module.exports = {
     })
   },
 
-  deleteEvent: function() {
-
+  //Unsure if syntax is correct, need to confirm
+  deleteEvent: function(event_id) {
+    Event.find({ _id: event_id}).remove(function(err) {
+      if(err) {
+        return err;
+      }
+      return null;
+    });
   },
 
   editEvent: function() {
