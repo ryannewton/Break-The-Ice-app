@@ -1,0 +1,1 @@
+var Event = require('./eventModel.js')
