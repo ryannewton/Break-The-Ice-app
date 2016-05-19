@@ -68,12 +68,9 @@
             <div class="col-md-3">
                 <p class="lead">Shop Name</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Category 1</a>
-                    <a href="#" class="list-group-item">Category 2</a>
-                    <a href="#" class="list-group-item">Category 3</a>
+                    <a href="#" class="list-group-item" ng-repeat="category in categories">{{category}}</a>
                 </div>
             </div>
-
             <div class="col-md-9">
 
                 <div class="row carousel-holder">
@@ -89,15 +86,14 @@
                             <div class="carousel-inner">
                                 <!-- each div is for each pic in the carousel -->
                                 <div class="item active">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="{{featured[0].img}}" alt="">
                                 </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+
+                                <div class="item" ng-repeat="featuredEvent in featured.slice(1)">
+                                    <img class="slide-image" src="{{featuredEvent.img}}" alt="">
                                 </div>
                             </div>
+                        
                             <!-- left arrow in the carousel -->
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -108,29 +104,29 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
-
-                <div class="row">
-                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="event in events">
-                        <div class="thumbnail">
-                            <img src="{{event.img}}" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">{{event.user_att.length}} going</h4>
-                                <h4><a href="#">{{event.event_name}}</a>
-                                </h4>
-                                <p>{{event.description}}</p>
-                            </div>
-                            <div class="ratings">
-                                <!-- maybe display the category here -->
-                                <p class="pull-right" ng-repeat="catergory in event.categories">{{catergory}}</p>
-                                <!-- here is the star rating. maybe display how many ppl are going -->
-                              <!--   <p ng-repeat="range(event.categories.lenght)"> -->
-                                    <span ng-repeat="i in event.users_att"class="glyphicon glyphicon-user"></span>
-                                </p>
-                            </div>
-                        </div>
+            </div>
+            <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="event in events">
+                <div class="thumbnail">
+                    <img src="{{event.img}}" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">{{event.users_att.length}} going</h4>
+                        <h4><a href="#">{{event.event_name}}</a>
+                        </h4>
+                        <p>{{event.description}}</p>
+                        <p>{{event.diff}}</p>
+                        <!-- this display in how many hours the event will take place<p>{{event.startInHour}}</p> -->
                     </div>
+                    <div class="ratings">
+                        <!-- maybe display the category here -->
+                        <p class="pull-right" ><span ng-repeat="catergory in event.categories">{{catergory}} |</span></p>
+                        <!-- here is the star rating. maybe display how many ppl are going -->
+                      <!--   <p ng-repeat="range(event.categories.lenght)"> -->
+                            <span ng-repeat="i in event.users_att"class="glyphicon glyphicon-user"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
                     <!-- keep this here  a tile with no boarder, a button etc. can be used to do About us/learn more section-->
 <!--                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <h4><a href="#">Like this template?</a>
@@ -142,6 +138,7 @@
                 </div>
 
             </div>
+        </div>
 
         </div>
 
@@ -169,8 +166,12 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="app/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- moment -->
+    <script src="app/bower_components/moment/moment.js"></script>
     <!-- angular -->
     <script type="text/javascript" src="app/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="app/bower_components/angular-moment/angular-moment.min.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
     <script type="text/javascript" src="app/controllers/landing.Ctrl.js"></script>
 

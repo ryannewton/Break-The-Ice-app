@@ -1,1 +1,1 @@
-angular.module('break',[]);
+angular.module('break',['angularMoment']);
