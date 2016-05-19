@@ -21,14 +21,20 @@ Input: event obj (see db elements)
 Output: err/null
 
 getEvent()
+Input: eventID
+Output: Event obj
 
 deleteEvent()
+Input: eventID
+Output: err/null
 
 editEvent()
+Input: Event obj
+Output: err if ID does not match value in database; null on success
 
 getEvents()
-
-getEventList()
+Input: Obj of filtering criteria (e.g. {location: 'Austin'})
+Output: Array of all event objs meeting filter criteria
 
 
 
@@ -47,16 +53,24 @@ Database:
 Methods:
 
 createUser()
+Input: User Obj (excluding ID)
+Output: err/null
 
 getUser()
+Input: user_id
+Output: User Obj
 
 deleteUser()
-
-addUser()
+Input: user_id
+Output: err/null
 
 checkAuth()
+Input: {email: str, password: str}
+Output: User Obj, or error
 
 joinEvent()
+Input: (user_id, event_id)
+Output: err/null
 
 
 ****Events Message Board****
