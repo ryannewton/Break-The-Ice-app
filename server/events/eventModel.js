@@ -35,7 +35,6 @@ db.once('open', function() {
         type: Schema.ObjectId,
         ref: 'users'
       }],
-      required: true,
     },
     owners: {
       type: type: [{
